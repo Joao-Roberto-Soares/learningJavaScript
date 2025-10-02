@@ -2,8 +2,61 @@
 <html lang="en">
 <head>
   <title>Rock Paper Scissors</title>
+  <style>
+      body{
+    font-family: Arial;
+    }
+
+
+
+    .subscribe-button {
+      border: none;
+      background-color: black;
+      color: white;
+      padding: 10px 15px 10px;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .is-subscribed{
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+
+    .cost-input {
+      font-size: 15px;
+      /*
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      */
+      padding: 10px;
+
+    }
+
+    .calculate-button {
+      background-color: green;
+      color: white;
+      padding: 12px 15px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <p>Youtube Subscribe Button</p>
+
+  <button onclick="subscribe()" class="js-subscribe-button subscribe-button">Subscribe</button>  
+
+  <p>Amazon Shipping Calculator</p>
+  <input class="js-cost-input cost-input" placeholder="Cost of order" onkeydown="handleCostKeyDown(event)">
+  <button class="calculate-button" onclick="calculateTotal()">Calculate</button>
+  <p class="js-total-cost"></p>
+
   <p>Rock Paper Scissors</p>
 
   <button onclick="playGame('rock')">Rock</button>
@@ -14,12 +67,7 @@
 
   <button onclick="resetScore()">Reset Score</button>
 
-  <p>Amazon Shipping Calculator</p>
-  <p>Orders under $40 = $10 shipping.</p>
-  <p>Orders over $40 = Free shipping.</p>
-  <input class="js-cost-input" placeholder="Cost of order" onkeydown="handleCostKeyDown(event)">
-  <button onclick="calculateTotal()">Calculate</button>
-  <p class="js-total-cost"></p>
+
 
 
 
@@ -27,13 +75,18 @@
 
   <script>
 
-    String(25)
-    console.log('25' - 5); // result = 20
-    console.log('25' + 5); // result = 255 (concatenation)
 
-    window.document
-    window.console.log('window');
-    window.alert('Hello')
+    function subscribe() {
+      const buttonElement = document.querySelector('.js-subscribe-button');
+
+      if (buttonElement.innerText === 'Subscribe') {
+      buttonElement.innerHTML = 'Subscribed';
+      buttonElement.classList.add('is-subscribed');
+      }else{
+      buttonElement.innerHTML = 'Subscribe';
+      buttonElement.classList.remove('is-subscribed');
+      }
+    }
 
     function handleCostKeyDown (event) {
       if(event.key === 'Enter'){
